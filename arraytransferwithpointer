@@ -1,0 +1,31 @@
+//Michael Dieterle
+//This program transfers the values held in one array to another and displays the values using pointer notation
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	//array miles and dist and pointer px declared and assigned
+	int miles[7] = {15, 22, 16, 18, 27, 23, 20};
+	int dist[7];
+	int *px = miles;
+
+	//values swapped from miles to dist using pointer px
+	for (int i = 0; i < 7; i++)
+	{
+		dist[i] = *px;
+		px++;
+	}
+	
+	//pointer py declared and assigned
+	int *py = dist;
+
+	//Outputs dist array using pointer py
+	cout << "The values contained in array dist are: " << *py << ", " << *(py + 1) <<
+		", " << *(py + 2) << ", " << *(py + 3) << ", " << *(py + 4) << ", " << *(py + 5) << 
+		", " << *(py + 6) << endl;
+
+	system("pause");
+	return 0;
+}
