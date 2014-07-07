@@ -1,0 +1,36 @@
+//Michael Dieterle
+//The program calculates a user's BMI based upon their inputted height and weight in pounds and inches.
+//The program then outputs whether the user's weight is over, under, or optimal.
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//set up variables
+	double weight, height, bmi;
+
+	//enter weight variable
+	cout << "Enter weight in pounds: ";
+	cin >> weight;
+
+	//enter height variable
+	cout << "Enter height in inches: ";
+	cin >> height;
+
+	//bmi calculation
+	bmi = (weight * 703) / (height * height);
+	cout << "Your BMI is " << bmi << endl;
+
+	//determines what output to use based on bmi
+	if (bmi >= 18.5 && bmi <= 25)
+		cout << "Your weight is optimal for your height." << endl;
+	else if (bmi < 18.5)
+		cout << "Your weight is below the average for your height." << endl;
+	else
+		cout << "Your weight is above the average for your height." << endl;
+	system("pause");
+
+	return 0;
+}
