@@ -1,0 +1,64 @@
+//Michael Dieterle
+//The Pursuit of Money
+//This program calculates the amount of time by percent that an individual will spend in a year
+//to acquire their desired annual income given their current income and hours worked per week.
+//The program then compares this percentage to the percent difference between the user's
+//desired salary and current salary.  Finally the program classifies the user based upon a tiered percent-based
+//ranking system that utilizes survey data on how people perceive individuals who work a certain percentage of the year.
+
+/*approx hours per year: 8765.81*/
+
+#include <iostream>
+using namespace std;
+
+//function prototype
+int calcTime(int);
+//float calcTime(float);
+//double calcTime(double);
+
+int main()
+{
+	//instantiation of variables
+	double currentASalary = 0; /*Current Annual Salary*/
+	double averageHPW = 0; /*Average Hours per Week*/
+	double desiredASalary = 0; /*Desired Annual Salary*/
+
+	cout << "Hello.  Welcome to The Pursuit of Money." << endl;
+	cout << "Playing is a simple three steps." << endl;
+	cout << "*Hint the more precise you are the more precise we are.*" << endl;
+	cout << "All you need to do to start is enter your current estimated gross salary: ";
+	cin >> currentASalary;
+	cout << "Next I need you to tell me approximately how many hours you spend a week working: ";
+	cin >> averageHPW;
+	cout << "Lastly what would you like your gross annual salary to be?: ";
+	cin >> desiredASalary;
+
+	int calcTime(int currentASalary, int desiredASalary, int averageHpW);
+
+	double pOY = calcTime(cAS, dAS, h); /*pOY = Percent of year spent working*/
+
+	cout << "To acheive your desired annual salary you would have to spend " << pOY << "% of your time this year working."
+
+	system("pause");
+	return 0;
+}
+
+int calcTime(int cAS, int dAS, int h) /*cAS = Current Annual Salary, dAS = Desired Annual Salary, h = hours per week*/
+{
+	int hourlyWage = (cAS / 8766);
+	int hoursTBW = (dAS / hourlyWage); /*hoursTbW = Hours to be worked*/
+	int percentOYear = ((hoursTBW / 8766) * 100); /*percentOYear = Percent of year spent working*/
+
+	return percentOYear;
+}
+
+/*
+float calcTime(float)
+{
+
+}
+
+double calcTime(double)
+{
+	
+} */
