@@ -1,0 +1,67 @@
+//Michael Dieterle
+//A given data file called data.txt contains integers. This program reads all the integers 
+//and finds the smallest, largest, sum, and average values. It then sorts all numbers read 
+//into ascending order and outputs all results into another file named DataOutput.
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+
+int main()
+{
+	//create vdata vector and int data
+	vector<int> vdata;
+	int data;
+	
+	//open data.txt, output error if not found or inaccessible
+	ifstream fileInput("C:\\C++\\data.txt");
+	if (!fileInput) {
+		cerr << "Unable to open file  C:\\C++\\data.txt\n";
+		exit (1);
+	}
+	
+	//read integers from data.txt into int data and then vector vdata
+	for (int i = 0; i < 750; i++)
+	{
+		fileInput >> data;
+		vdata.push_back(data);
+	}
+
+	//create DataOutput.txt file if can't output error message
+	ofstream odata;
+	odata.open("C:\\C++\\DataOutput.txt");
+	if (!odata)
+	{
+		cerr << "Unable to create file DataOutput.txt\n";
+		exit(1);
+	}
+
+	//calculates max, min, sum, and average from vector information and writes to DataOutput.txt
+	odata << "The smallest random number generated was: ";
+	odata << *min_element(vdata.begin(), vdata.end()) << endl;
+
+	odata << "The largest random number generated was: ";
+	odata << *max_element(vdata.begin(), vdata.end()) << endl;
+
+	odata << "The sum of all random numbers generated was: ";
+	odata << accumulate(vdata.begin(), vdata.end(), 0.0) << endl;
+
+	odata << "The average of all random numbers generated was: ";
+	odata << accumulate(vdata.begin(), vdata.end(), 0.0) / vdata.size() << endl;
+
+	//sorts data in vdata into ascending order
+	sort(vdata.begin(), vdata.end());
+	
+	//writes integers in vector vdata to DataOutput.txt
+	odata << "The integers from data.txt in ascending order were: " << endl;
+	for (int i = 0; i < 750; i++)
+	{
+		odata << vdata[i] << endl;
+	}
+
+	system("pause");
+	return 0;
+}
