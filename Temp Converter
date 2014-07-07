@@ -1,0 +1,59 @@
+//Michael Dieterle
+//This program prompts the user for a temperature in the form of an integer in Celsius
+//and then converts that temperature to Farenheit or vice-versa.
+
+//Function prototypes
+int CtoF(int); // Function accepts Celsius temperature and return Fahrenheit 
+
+int FtoC(int); // Function accepts Fahrenheit and return Celsius
+
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	int temperature, conTemp;
+	string fOrC;
+
+	cout << "Please enter the temperature you would like converted in integer format: ";		
+	cin >> temperature;
+	cout << "Did you enter the temperature in Celsius or Farenheit?: ";
+	cin >> fOrC;
+
+	if (fOrC == "Celsius")
+	{
+		conTemp = CtoF(temperature);
+		cout << temperature << " degrees Celsius converts to " << conTemp << " degrees Farenheit." << endl;
+	}
+	else
+	{
+		conTemp = FtoC(temperature);
+		cout << temperature << " degrees Farenheit converts to " << conTemp << " degrees Celsius." << endl;
+	}
+	system("pause");
+
+	return 0;
+}
+
+//Celsius to Farenheit function
+int CtoF(int x)
+{
+	int result;
+
+	result = (x * (9.0 / 5.0)) + 32;
+
+	return result;
+}
+
+//Farenheit to Celsius function
+int FtoC(int x)
+{
+	int result;
+
+	result = (x - 32) * (5.0 / 9.0);
+
+	return result;
+}
