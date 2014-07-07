@@ -1,0 +1,59 @@
+//Michael Dieterle
+//This program creates a structure called Points that consists of two integer coordinates a and b.
+//The program then prompts the user to input two sets of integer coordinates into Points.
+//Function Sum then accepts the two sets into Points and returns the sum of the two sets in Points
+//The program finally prints the sum of the two sets in Points
+
+#include <iostream>
+using namespace std;
+
+//structure creation
+struct Points
+{
+	int coor1[2];
+	int coor2[2];
+	int rect1[2];
+};
+
+//function prototype
+void Sum(Points);
+void ShowSum(Points);
+
+int main()
+{
+	Points rect;
+
+	for (int i = 0; i < 2; i++)	
+	{
+		cout << "Input an integer for the first set of coordinates: ";
+		cin >> rect.coor1[i];
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		cout << "Input an integer for the second set of coordinates: ";
+		cin >> rect.coor2[i];
+	}
+
+	Sum(rect);
+
+	/* ShowSum(rect); */
+
+	cout << "The sum of your given coordinates is: " << rect1[0] << ", "
+		<< rect1[1] << endl;
+
+	system("pause");
+	return 0;
+}
+
+void Sum(Points rect)
+{
+	int rect1[2] = { (rect.coor1[0] + rect.coor2[0]),
+					  (rect.coor1[1] + rect.coor2[1]) };
+}
+
+/* void ShowSum(Points *rect)
+{
+	cout << "The sum of your given coordinates is: " << rect->rect1[0] << ", "
+		<< rect->rect1[1] << endl;
+} */
